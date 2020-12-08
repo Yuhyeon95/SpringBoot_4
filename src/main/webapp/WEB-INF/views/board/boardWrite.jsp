@@ -29,11 +29,17 @@
       <label for="contents">Contents:</label>
       <textarea class="form-control" id="summernote" name="contents"></textarea>
     </div>
-    <div class="form-group">
-      <label for="files">File:</label>
-      <input type="file" class="form-control" name="files">
-      <input type="file" class="form-control" name="files">
-    </div>
+    
+    <c:choose>
+    	<c:when test="${board eq notice}">
+		    <div class="form-group">
+		      <label for="files">File:</label>
+		      <input type="file" class="form-control" name="files">
+		      <input type="file" class="form-control" name="files">
+		    </div>
+    </c:when>
+    <c:otherwise></c:otherwise>
+    </c:choose>
     
     
 

@@ -16,7 +16,7 @@
 <div class="container">
 	<h3>Navbar With Dropdown</h3>
 	<p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
-	<form action="./noticeUpdate" method="post" enctype="multipart/form-data">
+	<form action="./${board}Update" method="post" enctype="multipart/form-data">
 	
     <div class="form-group">
       <label for="title">Title:</label>
@@ -24,18 +24,25 @@
     </div>
     <div class="form-group">
       <label for="writer">Writer:</label>
-      <input type="text" class="form-control" id="writer" name="writer" value="${member.id}" readonly>
+      <input type="text" class="form-control" id="writer" name="writer" value="${vo.writer}" readonly>
     </div>
     <div class="form-group">
       <label for="contents">Contents:</label>
       <textarea class="form-control" id="summernote" name="contents">${vo.contents}</textarea>
     </div>
-    <div class="form-group">
-      <label for="files">File:</label>
-        <c:forEach items="${vo.files}" var="file">
-     	<p>${file.oriName}</p>
-      	</c:forEach>
-    </div>
+    
+     <c:choose>
+    	<c:when test="${board eq notice}">
+		    <div class="form-group">
+		      <label for="files">File:</label>
+		        <c:forEach items="${vo.files}" var="file">
+		     	<p>${file.oriName}</p>
+		      	</c:forEach>
+		    </div>
+   		</c:when>
+    	<c:otherwise></c:otherwise>
+    </c:choose>
+    
     <input type="hidden" name="num" value="${vo.num}">
     
 

@@ -14,10 +14,8 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
-	
-	
-	<h3>Navbar With Dropdown</h3>
-	<p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
+		
+	<h3>${board} Select</h3>
 	
     <div class="form-group">
       <label for="title">Title:</label>
@@ -31,12 +29,20 @@
       <label for="contents">Contents:</label>
       <input type="text" class="form-control" id="writer" name="writer" value= "${vo.contents}" readonly>
     </div>
-    <div class="form-group">
-      <label for="files">File:</label>
-      <c:forEach items="${vo.files}" var="file">
-     	<p><a href="noticeFileDown?fnum=${file.fnum}">${file.oriName}</a></p>
-      </c:forEach>
-    </div>
+    
+    <c:choose>
+    	<c:when test="${board eq notice}">
+	    <div class="form-group">
+	      <label for="files">File:</label>
+	      <c:forEach items="${vo.files}" var="file">
+	     	<p><a href="noticeFileDown?fnum=${file.fnum}">${file.oriName}</a></p>
+	      </c:forEach>
+	    </div>
+	    </c:when>
+	    <c:otherwise>
+	    
+	    </c:otherwise>
+    </c:choose>
     
    <form id="frm">
 		<input type="hidden" value="${vo.num}" name="num"> 
