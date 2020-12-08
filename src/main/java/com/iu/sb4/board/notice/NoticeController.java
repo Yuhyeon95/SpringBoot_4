@@ -83,4 +83,17 @@ public class NoticeController {
 	public String setInsert() throws Exception {
 		return "board/boardWrite";
 	}
+	
+	@GetMapping("noticeDelete")
+	public ModelAndView setDelete(BoardVO boardVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setDelete(boardVO);
+		if(result > 0) {
+			mv.addObject("msg", "Notice Delete Success");
+		}else {
+			mv.addObject("msg", "Notice Delete Fail");
+		}
+		mv.addObject("path","./noticeList");
+		return mv;
+	}
 }

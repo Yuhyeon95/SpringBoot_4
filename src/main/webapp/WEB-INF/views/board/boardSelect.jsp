@@ -38,7 +38,8 @@
     
     
 
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default">Update</button>
+    <button type="submit" class="btn btn-default">Delete</button>
   </form>
 </div>
 
