@@ -10,5 +10,9 @@ public class MemberService {
 
 	@Autowired
 	private MemberMapper memberMapper;
+	
+	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception {
+		return memberMapper.getMemberLogin(memberVO);
+	}
 
 }

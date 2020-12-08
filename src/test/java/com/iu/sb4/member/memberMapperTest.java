@@ -33,7 +33,7 @@ class memberMapperTest {
 		}
 	}
 	
-	@Test
+	//@Test
 	void setInsertFileTest() throws Exception {
 		MemberFileVO memberFileVO = new MemberFileVO();
 		memberFileVO.setId("id1");
@@ -44,5 +44,15 @@ class memberMapperTest {
 		assertEquals(1, result);
 		}
 	
+	
+	//@Test
+	void getMemberLoginTest() throws Exception {
+		MemberVO memberVO = new MemberVO();
+		memberVO.setId("id1");
+		memberVO.setPw("pw2");
+		
+		memberVO = memberMapper.getMemberLogin(memberVO);
+		assertNotNull(memberVO);
+	}
 	
 }
