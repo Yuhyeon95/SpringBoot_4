@@ -22,7 +22,7 @@
     <c:choose>
     	<c:when test="${not empty member}">
 		   	  <!--  로그인 상태 -->
-		      <li><a href="#"><span class="glyphicon glyphicon-user"></span>Mypage</a></li>
+		      <li><a href="${pageContext.request.contextPath}/member/memberPage"><span class="glyphicon glyphicon-user"></span>Mypage</a></li>
 		      <li><a href="${pageContext.request.contextPath}/member/memberLogout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       	</c:when>
       	<c:otherwise>

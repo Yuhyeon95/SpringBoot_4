@@ -43,9 +43,16 @@ public class MemberController {
 		return mv;
 	}
 	
+	
+	
 	@GetMapping("memberLogout")
 	public String getmemberLogout(HttpSession session) throws Exception{
 		session.invalidate();
 		return "redirect:../";
+	}
+
+	@GetMapping("memberPage")
+	public void getMemberPage() throws Exception {
+		
 	}
 }
