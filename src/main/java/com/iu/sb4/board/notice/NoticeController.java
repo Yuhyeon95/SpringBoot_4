@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +26,12 @@ public class NoticeController {
 	//파일경로 보내기 application.properties에 설정
 	@Value("${board.notice.filePath}")
 	private String filePath;
+	
+	//model.addAttribute("board", "notice")
+	@ModelAttribute(name="board")
+	public String getBoard() {
+		return "notice";
+	}
 	
 	@GetMapping("noticeFileDown")
 	public ModelAndView getNoticeFileDown(FileVO fileVO) throws Exception{
@@ -54,7 +61,6 @@ public class NoticeController {
 		System.out.println(pager.getCurPage());
 		System.out.println(pager.getStartRow());
 		mv.addObject("list", ar);
-		mv.addObject("board", "Notice");
 		mv.addObject("pager", pager);
 		mv.setViewName("board/boardList");
 		return mv;
@@ -65,7 +71,7 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		boardVO =noticeService.getOne(boardVO);
 		
-		mv.addObject("board", boardVO);
+		mv.addObject("vo", boardVO);
 		mv.setViewName("board/boardSelect");
 		return mv;
 	}
@@ -94,6 +100,13 @@ public class NoticeController {
 			mv.addObject("msg", "Notice Delete Fail");
 		}
 		mv.addObject("path","./noticeList");
+		mv.setViewName("common/result");
+		return mv;
+	}
+	
+	@GetMapping("noticeUpdate")
+	public ModelAndView setUpdate(BoardVO boardVO) throws Exception {
+		ModelAndView mv = new ModelAndView();
 		return mv;
 	}
 }

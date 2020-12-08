@@ -17,7 +17,7 @@ class NoticeMapperTest {
 	@Autowired
 	private NoticeMapper noticeMapper;
 	
-	@Test
+	//@Test
 	void getList() throws Exception {
 		Pager pager = new Pager();
 		pager.setPerPage(5);
@@ -39,10 +39,10 @@ class NoticeMapperTest {
 		assertNotNull(boardVO);
 	}
 	
-	//@Test
+	@Test
 	void setDeleteTest() throws Exception {
 		NoticeVO noticeVO = new NoticeVO();
-		noticeVO.setNum(3);
+		noticeVO.setNum(9);
 		int result = noticeMapper.setDelete(noticeVO);
 		assertNotEquals(0, result);
 	}
