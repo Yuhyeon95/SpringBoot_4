@@ -105,8 +105,29 @@ public class NoticeController {
 	}
 	
 	@GetMapping("noticeUpdate")
-	public ModelAndView setUpdate(BoardVO boardVO) throws Exception {
+	public ModelAndView setUpdate(BoardVO boardVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		boardVO =noticeService.getOne(boardVO);
+		mv.addObject("vo", boardVO);
+		mv.setViewName("board/boardUpdate");
+		return mv;
+	}
+	
+	
+	@PostMapping("noticeUpdate")
+	public ModelAndView setUpdate(BoardVO boardVO, MultipartFile [] files) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setUpdate(boardVO);
+		int temp = (int) boardVO.getNum();
+		
+		if(result > 0) {
+			mv.addObject("msg","Notice Update Success");
+			mv.addObject("path", "./noticeSelect?num=" + temp);
+		}else {
+			mv.addObject("msg", "Notice Update Fail");
+			mv.addObject("path", "./noticeList");
+		}
+		mv.setViewName("common/result");
 		return mv;
 	}
 }

@@ -14,55 +14,41 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
-	
-	
 	<h3>Navbar With Dropdown</h3>
 	<p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
+	<form action="./noticeUpdate" method="post" enctype="multipart/form-data">
 	
     <div class="form-group">
       <label for="title">Title:</label>
-      <input type="text" class="form-control" id="title" name="title" value= "${vo.title}" readonly>
+      <input type="text" class="form-control" id="title" name="title" value="${vo.title}">
     </div>
     <div class="form-group">
       <label for="writer">Writer:</label>
-      <input type="text" class="form-control" id="writer" name="writer" value= "${vo.writer}" readonly>
+      <input type="text" class="form-control" id="writer" name="writer" value="${member.id}" readonly>
     </div>
     <div class="form-group">
       <label for="contents">Contents:</label>
-      <input type="text" class="form-control" id="writer" name="writer" value= "${vo.contents}" readonly>
+      <textarea class="form-control" id="summernote" name="contents">${vo.contents}</textarea>
     </div>
     <div class="form-group">
       <label for="files">File:</label>
-      <c:forEach items="${vo.files}" var="file">
-     	<p><a href="noticeFileDown?fnum=${file.fnum}">${file.oriName}</a></p>
-      </c:forEach>
+        <c:forEach items="${vo.files}" var="file">
+     	<p>${file.oriName}</p>
+      	</c:forEach>
     </div>
+    <input type="hidden" name="num" value="${vo.num}">
     
-   <form id="frm">
-		<input type="hidden" value="${vo.num}" name="num"> 
-   		<button class="btn btn-primary go" title="Update">Update</button>
-   		<button class="btn btn-danger go" title="Delete">Delete</button>
-   </form>
 
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
 </div>
-<script type="text/javascript">
-	$(".go").click(function() {
-		var board= '${board}';
-		var t = $(this).attr("title");
-		
-		$("#frm").attr("action", board+t);
+<script>
+  $(function() {
+      $('#summernote').summernote({
+			height: 300
+          });
 
-		/*if(t=='Update'){
-			$("#frm").attr("method","post");
-			alert(t);
-		}*/
-		$("#frm").submit;
-		
-		});
-	/*
-	$("#board-delete").click(function(){
-		location.href="./${board}Delete?num=${vo.num}"; //get방식
-		});*/
+  });
 </script>
 </body>
 </html>

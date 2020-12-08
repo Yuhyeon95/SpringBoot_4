@@ -16,6 +16,7 @@
         </ul>
       </li>
       <li><a href="${pageContext.request.contextPath}/notice/noticeList">Notice</a></li>
+      <li><a href="${pageContext.request.contextPath}/qna/qnaList">QnA</a></li>
       <li><a href="#">Page 3</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
