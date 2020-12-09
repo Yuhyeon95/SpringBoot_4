@@ -29,11 +29,9 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		registry.addInterceptor(customInterceptor)
 		
 		//Interceptor 에서 사용할 URL 작성(method 체이닝)
-		.addPathPatterns("/notice/**")
+		.addPathPatterns("/notice/**");
 		//.addPathPatterns(patterns)
 		
-		//Interceptor에서 제외할 URL 작성
-		.excludePathPatterns("/notice/noticeWrite");
 		
 		registry.addInterceptor(noticeAdminInterceptor)
 		.addPathPatterns("/notice/noticeWrite")
@@ -42,6 +40,7 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		
 		registry.addInterceptor(qnaMemberInterceptor)
 		.addPathPatterns("/qna/**")
+		//Interceptor에서 제외할 URL 작성
 		.excludePathPatterns("/qna/qnaList");
 		
 		
