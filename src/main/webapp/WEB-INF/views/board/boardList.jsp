@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +17,11 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
+<c:if test="${not empty member}">
+	<spring:message code="member.login.message" arguments="${member.id}"></spring:message>
+</c:if>
 <h3>${board} List</h3>
-<img alt="" src="../images/main_1.jpg" width="100px">
+<img alt="" src="../images/main_1.jpg" width="100px" >
 
 <form action="./${board}List">
 	<input type="hidden" name="curPage" id="curPage" value="1">
