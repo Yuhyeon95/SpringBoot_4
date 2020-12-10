@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>  
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +34,65 @@
 	<img alt="munzzy" src="./images/main_1.jpg" width="500px">
 	
 	<a href="./rest/member/iu/1">Click</a>
-	
+	<button class="btn btn-danger" id="btn">Click me</button>
+	<button class="btn btn-primary" id="list">List</button>
+<script type="text/javascript">
+	$("#list").click(function(){
+		$.get("board/boardList?curPage=1", function(data){
+				console.log(data);
+			})
+		
+		/*$.ajax({
+			type:"GET",
+			url:"board/boardList",
+			data:{ curPage:1 },
+			success:function(data){
+				alert(data);
+				} 
+			});*/
+		});
+
+	$("#btn").click(function() {
+		$.ajax({
+			type:"GET",
+			url:"board/boardSelect",
+			data: {
+				num:33
+			},
+			success:function(data){
+				alert(data);
+				}
+			});
+
+		});
+
+
+
+/*	$("#btn").click(function() {
+		console.log("click");
+		$.get("https://api.manana.kr/exchange.json",function(data){
+			console.log(data);
+			for(i=0;i<data.length;i++){
+				console.log(data[i].kr);
+				}
+			
+			})
+		});
+
+
+	var v = '{"name":"iu", "age":28, "job": {"singer":"top", "actor":"second"}, "food": ["steak","bread","milk"] } ';
+	v=JSON.parse(v);
+	//변수명.JSON의 키
+	alert(v.name);
+	alert(v.age);
+	alert(v.job.singer);
+	alert(v.job.actor);
+	alert(v.food);
+	for(i=0;i<v.food.length;i++){
+		console.log(v.food[i]);
+		}
+*/	
+</script>	
 </div>
 	
 </body>
