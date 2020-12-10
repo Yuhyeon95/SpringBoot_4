@@ -38,8 +38,10 @@ public class MemberController {
 	@PostMapping("memberJoin")
 	public ModelAndView setMemberJoin(@Valid MemberVO memberVO, BindingResult bindingResult, MultipartFile [] files) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		if(bindingResult.hasErrors()) {
-			mv.setViewName("member/memberJoin");	
+		
+		if(memberService.getMemberError(memberVO, bindingResult)) {
+			mv.setViewName("member/memberJoin");
+			return mv;
 		}
 		//검증이 통과일 때 실행하는 코드 작성
 		

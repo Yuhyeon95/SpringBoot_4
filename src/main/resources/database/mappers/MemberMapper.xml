@@ -15,6 +15,10 @@
 	values (#{id}, #{fileName}, #{oriName})
 </insert>
 
+<select id="getMemberId" parameterType="MemberVO" resultType="MemberVO">
+	select id from member where id=#{id}
+</select>
+
 <select id="getMemberLogin" parameterType="MemberVO" resultMap="memberLoginResult">
 	<!-- id, name, role -->
 	select M.id, M.name, MR.role

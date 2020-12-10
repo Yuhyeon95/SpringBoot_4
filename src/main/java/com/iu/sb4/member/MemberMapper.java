@@ -13,4 +13,6 @@ public interface MemberMapper {
 	
 	public MemberVO getMemberLogin(MemberVO memberVO) throws Exception;
 	
+	public MemberVO getMemberId(MemberVO memberVO) throws Exception;
+	
 }

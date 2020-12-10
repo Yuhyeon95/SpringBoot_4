@@ -25,6 +25,12 @@
 		 	<form:password path="pw" class="form-control"/>
 		 	<form:errors path="pw" cssClass="error"></form:errors>
 	</div>	 	
+	<div class="form-group">	
+		 	<label for="pw">Password:</label>
+		 	<!-- path : parameter Name -->
+		 	<form:password path="pw2" class="form-control"/>
+		 	<form:errors path="pw2" cssClass="error"></form:errors>
+	</div>
 	<div class="form-group">	 	
 		 	<label for="name">Name:</label>
 		 	<!-- path : parameter Name -->
