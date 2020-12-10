@@ -34,6 +34,8 @@
 	<h1>Default : <spring:message code="use" text="Default Message"></spring:message></h1>
 	<img alt="munzzy" src="./images/main_1.jpg" width="500px">
 	
+	<a href="./rest/member/iu/1">Click</a>
+	
 </div>
 	
 </body>

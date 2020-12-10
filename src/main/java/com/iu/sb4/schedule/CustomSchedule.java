@@ -18,7 +18,7 @@ public class CustomSchedule {
 	private NoticeService noticeService;
 
 	//@Scheduled(fixedRate = 1000, initialDelay = 2000 )
-	@Scheduled(fixedRateString = "1000", initialDelayString = "3000")
+	//@Scheduled(fixedRateString = "1000", initialDelayString = "3000")
 	public void fixRateTest() throws Exception{
 		System.out.println(Thread.currentThread().getName());
 		System.out.println("-----------Fix Rate Test ----------------");
@@ -31,7 +31,7 @@ public class CustomSchedule {
 	}
 	
 	//@Scheduled(cron = "0 14 * * * *")
-	@Scheduled(cron = "* * * * * *")
+	//@Scheduled(cron = "* * * * * *")
 	public void cronTest() throws Exception {
 		Calendar ca = Calendar.getInstance();
 		System.out.println(Thread.currentThread().getName());
